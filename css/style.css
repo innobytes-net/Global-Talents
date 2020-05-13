@@ -8321,6 +8321,11 @@ textarea.form-control {
   .block-6 .media-body p {
     font-size: 16px; }
 
+    .bloc
+    {
+      border: medium;
+    }
+
 .block-18 .icon > span {
   font-size: 40px; }
 
