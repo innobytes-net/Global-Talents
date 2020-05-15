@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="colorlib.com">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="main">
+
+        <div class="container">
+            <h2>Sign Up and Get Started</h2>
+            <form method="POST" id="signup-form" class="signup-form">
+                
+                <h3>
+                    <span class="title_text">Personal Information</span>
+                </h3>
+                <fieldset>
+                    <h4 class="text-center">What do you want to do?</h4>
+                    
+                    
+                    <div class="heading">
+
+
+                        <button class="btn btn-default" onclick="myFunction()"
+                        type="button"  
+                        style=" color: white;background-color:#1abc9c;border-radius: 5px;padding: 20px;"
+                        required="required" id="btn-1">
+                            <span class="d-none d-full-user-type-inline">I WANT TO WORK</span>
+                             
+                            
+                        </button>
+                        <button class="btn btn-default ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" onclick="myFunction1()" id="btn-2" 
+                        style="color: white;background-color:black;border-radius: 5px;padding: 20px;"type="button" tracking="" tracking-event="click" tracking-location="registration" tracking-sublocation="complete_your_account" tracking-data="[]" tracking-label="register_as_freelancer" tracking-value="" tracking-item-type="null" tracking-olog="1" tracking-snowplow="1" tracking-gtm="0" tracking-element="" tracking-gtm-event="ga" data-ng-click="setFlow('freelancer_high_potential');" data-ng-model="flowSwitch" data-eo-btn-radio="'freelancer'" name="flowSwitchBtn" data-ng-required="!flowSwitch" required="required">
+                            <span class="d-none d-full-user-type-inline">I WANT TO HIRE</span>
+                            
+                        </button>
+
+                    </div>
+                
+                    <div class="fieldset-content">
+                        <div class="form-group">
+                            <label for="first_name" class="form-label">First name</label>
+                            <input type="text" name="first_name" id="first_name" placeholder="First Name" />
+
+                            <label for="last_name" class="form-label">Last name</label>
+                            <input type="text" name="last_name" id="last_name" placeholder="Last Name" />
+                        </div>
+                        <div class="fieldset-content">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" style="width: 400px;" name="email id" id="email"placeholder="Email" />
+    
+                                
+                            </div>
+                     
+    
+                       
+    
+                        <div class="form-group form-password">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" id="password" data-indicator="pwindicator" />
+                            
+                        </div>
+
+                    <div class="fieldset-footer">
+                        <span>Step 1 of 2</span>
+                    </div>
+
+                </fieldset>
+                 
+                <h3>
+                    <span class="title_text">Account Infomation</span>
+                </h3>
+                <fieldset>
+                    
+                    
+                    <div class="fieldset-content">
+                        <div class="form-group">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" name="username" id="username" placeholder="User Name" />
+                        </div>
+                        <div class="form-radio">
+                            <label for="gender" class="form-label">Gender</label>
+                            <div class="form-radio-item">
+                                <input type="radio" name="gender" value="male" id="male" checked="checked" />
+                                <label for="male">Male</label>
+    
+                                <input type="radio" name="gender" value="female" id="female" />
+                                <label for="female">Female</label>
+                            </div>
+                        </div>
+                        <div class="form-select">
+                            <label for="country" class="form-label">Country</label>
+                            <select name="country" id="country">
+                                <option value="">Country</option>
+                                <option value="India">India</option>
+                                <option value="USA">America</option>
+                            </select>
+                            <label for="state" class="form-label">State</label>
+                            <select name="state" id="state">
+                                <option value="">State</option>
+                                <option value="MAHARASHTRA">Maharashtra</option>
+                                <option value="KERALA">Kerala</option>
+                            </select>
+                            <label for="city" class="form-label">City</label>
+                            <select name="city" id="city">
+                                <option value="">City</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Mumbai Suburban">Mumbai Suburban</option>
+                            </select>
+                        </div>
+                         
+                         
+                       
+                       
+                    <div class="fieldset-footer">
+                        <span>Step 2 of 2</span>
+                    </div>
+                </fieldset>
+
+                 </form>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="vendor/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="vendor/jquery-steps/jquery.steps.min.js"></script>
+    <script src="vendor/minimalist-picker/dobpicker.js"></script>
+    <script src="vendor/jquery.pwstrength/jquery.pwstrength.js"></script>
+    <script src="js/main.js"></script>
+   <script>
+         function myFunction() { 
+                document.getElementById("btn-1").style.background ="#1abc9c"; 
+                document.getElementById("btn-2").style.background ="black"; 
+            }  
+            function myFunction1() { 
+                document.getElementById("btn-2").style.background ="#1abc9c"; 
+                document.getElementById("btn-1").style.background ="black"; 
+            }  
+
+   </script>
+   
+</body>
+
+</html>
