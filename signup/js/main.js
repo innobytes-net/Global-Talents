@@ -1,88 +1,57 @@
-(function($) {
 
-    var form = $("#signup-form");
-    form.validate({
-        errorPlacement: function errorPlacement(error, element) {
-            element.before(error);
-        },
-        rules: {
-            username: {
-                required: true,
-            },
-            email: {
-                required: true,
-                email : true
+(function ($) {
+    "use strict";
+
+
+    /*==================================================================
+    [ Validate ]*/
+    var input = $('.validate-input .input100');
+
+    $('.validate-form').on('submit',function(){
+        var check = true;
+
+        for(var i=0; i<input.length; i++) {
+            if(validate(input[i]) == false){
+                showValidate(input[i]);
+                check=false;
             }
-        },
-        messages : {
-            email: {
-                email: 'Not a valid email address <i class="zmdi zmdi-info"></i>'
+        }
+
+        return check;
+    });
+
+
+    $('.validate-form .input100').each(function(){
+        $(this).focus(function(){
+           hideValidate(this);
+        });
+    });
+
+    function validate (input) {
+        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+                return false;
             }
-        },
-        onfocusout: function(element) {
-            $(element).valid();
-        },
-    });
-    form.steps({
-        headerTag: "h3",
-        bodyTag: "fieldset",
-        transitionEffect: "slideLeft",
-        labels: {
-            previous: 'Previous',
-            next: 'Next',
-            finish: 'Submit',
-            current: ''
-        },
-        titleTemplate: '<div class="title"><span class="number">#index#</span>#title#</div>',
-        onStepChanging: function(event, currentIndex, newIndex) {
-            form.validate().settings.ignore = ":disabled,:hidden";
-            // console.log(form.steps("getCurrentIndex"));
-            return form.valid();
-        },
-        onFinishing: function(event, currentIndex) {
-            form.validate().settings.ignore = ":disabled";
-            console.log(getCurrentIndex);
-            return form.valid();
-        },
-        onFinished: function(event, currentIndex) {
-            alert('Sumited');
-        },
-        // onInit : function (event, currentIndex) {
-        //     event.append('demo');
-        // }
-    });
+        }
+        else {
+            if($(input).val().trim() == ''){
+                return false;
+            }
+        }
+    }
 
-    jQuery.extend(jQuery.validator.messages, {
-        required: "",
-        remote: "",
-        url: "",
-        date: "",
-        dateISO: "",
-        number: "",
-        digits: "",
-        creditcard: "",
-        equalTo: ""
-    });
+    function showValidate(input) {
+        var thisAlert = $(input).parent();
 
+        $(thisAlert).addClass('alert-validate');
+    }
 
-    $.dobPicker({
-        daySelector: '#expiry_date',
-        monthSelector: '#expiry_month',
-        yearSelector: '#expiry_year',
-        dayDefault: 'DD',
-        yearDefault: 'YYYY',
-        minimumAge: 0,
-        maximumAge: 120
-    });
+    function hideValidate(input) {
+        var thisAlert = $(input).parent();
 
-    $('#password').pwstrength();
-
-    $('#button').click(function () {
-        $("input[type='file']").trigger('click');
-    })
+        $(thisAlert).removeClass('alert-validate');
+    }
     
-    $("input[type='file']").change(function () {
-        $('#val').text(this.value.replace(/C:\\fakepath\\/i, ''))
-    })
+    
 
 })(jQuery);
