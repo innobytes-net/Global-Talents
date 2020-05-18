@@ -13,6 +13,7 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="css/style.css">
+    <script src="/signup/cities.js"></script>
 </head>
 
 <body>
@@ -21,7 +22,7 @@
 
         <div class="container">
             <h2>Sign Up and Get Started</h2>
-            <form method="POST" id="signup-form" class="signup-form">
+            <form method="POST" id="signup-form" class="signup-form" action = "/signup/registration.php" enctype="multipart/form-data">
                 
                 <h3>
                     <span class="title_text">Personal Information</span>
@@ -60,7 +61,7 @@
                         <div class="fieldset-content">
                             <div class="form-group">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" style="width: 400px;" name="email id" id="email"placeholder="Email" />
+                                <input type="email" style="width: 400px;" name="email" id="email"placeholder="Email" />
     
                                 
                             </div>
@@ -106,28 +107,21 @@
                             <select name="country" id="country">
                                 <option value="">Country</option>
                                 <option value="India">India</option>
-                                <option value="USA">America</option>
+                                
                             </select>
                             <label for="state" class="form-label">State</label>
-                            <select name="state" id="state">
-                                <option value="">State</option>
-                                <option value="MAHARASHTRA">Maharashtra</option>
-                                <option value="KERALA">Kerala</option>
+                            <select onchange="print_city('state', this.selectedIndex);" name="state" id="sts">
+                                
                             </select>
                             <label for="city" class="form-label">City</label>
-                            <select name="city" id="city">
-                                <option value="">City</option>
-                                <option value="Mumbai">Mumbai</option>
-                                <option value="Mumbai Suburban">Mumbai Suburban</option>
-                            </select>
+                            <select name="city" id="state"></select>
+                            <script language="javascript">print_state("sts");</script>
                         </div>
                          
                          
+                       <button type="submit" class="btn btn-default" style="margin: auto auto;">Sign up</button>
                        
-                       
-                    <div class="fieldset-footer">
-                        <span>Step 2 of 2</span>
-                    </div>
+                    
                 </fieldset>
 
                  </form>
