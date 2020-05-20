@@ -7,9 +7,9 @@ $pass='kuber123';
 $db='innoszdh_globaltalents';
 $port = '3306';
 $connection=mysqli_connect($server,$user,$pass,$db,$port);
-mysqli_connect(host, username, password, dbname, port, socket)
 
-$connection=new mysqli("162.215.253.205","innoszdh_global","innoszdh_globaltalents");//Modify last argument with the name of your database
+
+//$connection=new mysqli("162.215.253.205","innoszdh_global","innoszdh_globaltalents");//Modify last argument with the name of your database
 if ($connection -> connect_errno)
 {
     echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
@@ -36,7 +36,7 @@ if ($connection -> connect_errno)
         
     if($data == 1)
     {
-        echo "New record created successfully";
+        //echo "New record created successfully";
     }
         else
         {
