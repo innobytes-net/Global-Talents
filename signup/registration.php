@@ -42,5 +42,6 @@ if ($connection -> connect_errno)
         {
             echo "Error:  " . $sql . "<br>" . $con->error;
         }
-
+        header('Location: ../login.html');
+        exit();
 ?>
