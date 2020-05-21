@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -68,7 +69,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="login.html" class="nav-link">Log In</a>
+              <a href="login.php" class="nav-link">Log In</a>
             </li>
 
             <li class="nav-item"></li>

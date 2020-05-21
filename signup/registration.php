@@ -19,8 +19,9 @@ if ($connection -> connect_errno)
     $f_name = $_POST['firstname'];
     $l_name = $_POST['lastname'];
     $email = $_POST['email'];
-    $pass = $_POST['password'];
-    $pwd = password_hash($pass,PASSWORD_DEFAULT);
+    $password = mysqli_real_escape_string($db,$_POST['password']); 
+    //$pass = $_POST['password'];
+    //$pwd = password_hash($pass,PASSWORD_DEFAULT);
     $type = $_POST['user'];
     
     // $u_name = $_POST['username'];
@@ -31,7 +32,7 @@ if ($connection -> connect_errno)
     
     //Name of table is users
     //Please refer User.sql for schema 
-    $sql="INSERT INTO USERS (first_name,last_name,email_id,password,type) VALUES ('".$f_name."','".$l_name."','".$email."','".$pwd."','".$type."')";
+    $sql="INSERT INTO USERS (first_name,last_name,email_id,password,type) VALUES ('".$f_name."','".$l_name."','".$email."','".$password."','".$type."')";
     $data=$connection->query($sql);
         
     if($data == 1)
@@ -42,6 +43,6 @@ if ($connection -> connect_errno)
         {
             echo "Error:  " . $sql . "<br>" . $con->error;
         }
-        header('Location: ../login.html');
+        header('Location: ../login.php');
         exit();
 ?>
