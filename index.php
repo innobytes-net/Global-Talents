@@ -74,7 +74,7 @@
 
             <li class="nav-item"></li>
             <li class="nav-item cta mr-md-2" style="float: right;">
-              <a href="signup/signup.html" class="nav-link">Sign up</a>
+              <a href="signup/registration.php" class="nav-link">Sign up</a>
             </li>
             <li class="nav-item cta cta-colored">
               <a href="job-post.html" class="nav-link">Post a Job</a>
