@@ -11,6 +11,30 @@ CREATE TABLE IF NOT EXISTS USERS(
     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS Job_Post(
+    job_id INT AUTO_INCREMENT PRIMARY KEY,
+    category_id INT NOT NULL,
+    company_name VARCHAR(30) NOT NULL,
+    job_title VARCHAR(20) NOT NULL,
+    job_description VARCHAR(255) NOT NULL,
+    job_location VARCHAR(100) NOT NULL,
+    salary VARCHAR(10) NOT NULL,
+    contact_user VARCHAR(20) NOT NULL,
+    contact_email VARCHAR(100) NOT NULL,
+    FOREIGN KEY (company_name) 
+        REFERENCES Employer(company_name),
+        FOREIGN KEY (category_id) 
+        REFERENCES Category(category_id), 
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+); 
+
+CREATE TABLE IF NOT EXISTS Category(
+    category_id INT AUTO_INCREMENT PRIMARY KEY,
+   Category VARCHAR(100) NOT NULL,
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+); 
 
 
 /*
@@ -81,17 +105,6 @@ CREATE TABLE IF NOT EXISTS Employer(
     profile_type VARCHAR(30)
 );
 
-CREATE TABLE IF NOT EXISTS Job_Post(
-    job_id INT AUTO_INCREMENT PRIMARY KEY,
-    company_username VARCHAR(30) NOT NULL,
-    project_name VARCHAR(20) NOT NULL,
-    project_description VARCHAR(100) NOT NULL,
-    skills_required VARCHAR(100) NOT NULL,
-    FOREIGN KEY (company_username) 
-        REFERENCES Employer(company_username) 
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
-);
 
 CREATE TABLE IF NOT EXISTS Job_Application(
     username VARCHAR(30),
@@ -111,3 +124,4 @@ CREATE TABLE IF NOT EXISTS Job_Application(
 );
 
 */
+
