@@ -1,16 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
-body {
-    background-image: url("/images/bg_1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    -ms-background-size: cover;
-    background-position: center center;
-}
-
 .form-div {
     margin: 50px auto 50px;
     padding: 25px 15px 10px 25px;
@@ -18,9 +7,13 @@ body {
     border-radius: 5px;
     font-size: 1.1em;
     font-family: 'Lora', serif;
-    background-color: white;
+
 }
 
 .form-control:focus {
     box-shadow: none;
+}
+
+.logo-img {
+    width: 30%;
 }

@@ -6,7 +6,6 @@ $server='162.215.253.205';
  $db='innoszdh_globaltalents';
  $port = '3306';
 $connection= new mysqli($server,$user,$pass,$db,$port);
-
 if($connection->connect_error){
     die("Database Error:". $connection->connect_error);
 }
@@ -21,7 +20,7 @@ if(isset($_POST['signup-btn'])){
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = mysqli_real_escape_string($connection,$_POST["password"]);
     $passwordConfirm = $_POST['passwordConfirm'];
 
 
@@ -58,7 +57,7 @@ if(isset($_POST['signup-btn'])){
     }
 
     if(count($errors)===0){
-        $password = password_hash($password,PASSWORD_DEFAULT);
+        //$password = password_hash($password,PASSWORD_DEFAULT);
 
         $sql="INSERT INTO USERS (first_name,last_name,email_id,password,type) VALUES (?,?,?,?,?)";
         $stmt = $connection->prepare($sql);
@@ -72,8 +71,8 @@ if(isset($_POST['signup-btn'])){
         $_SESSION['email_id'] = $email;
 
         //set flash message
-        $_SESSION['message'] = "You are now logged in";
-        $_SESSION['aler-success'] = "alert-success";
+        $_SESSION['message'] = "Registration done successfully";
+        $_SESSION['alert-class'] = "alert-success";
         header('location: ../login.php');
         exit();
 
@@ -92,13 +91,14 @@ if(isset($_POST['signup-btn'])){
 	<!--BOOTSTRAP-->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<title>Register</title>
-	<link rel="stylesheet" type="text/css" href="/signup/css/register.css">
+	<link rel="stylesheet" type="text/css" href="./css/register.css">
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 offset-md-4 form-div">
 				<form action=" " method="post">
+                    <img src="/images/talent.png" class="logo-img">
 					<h3 class="text-center">REGISTER</h3>
 
                     <span class="form-group" style="font-size: 15px;padding-bottom: 10px;">
@@ -155,7 +155,7 @@ if(isset($_POST['signup-btn'])){
 						<button type="submit" name="signup-btn" class="btn btn-primary btn-block btn-lg">Sign Up</button>
 					</div>
 
-					<p class="text-center">Already a member?<a href="login.php"><br>Sign In</a></p>
+					<p class="text-center">Already a member?<a href="../login.php"><br>Sign In</a></p>
 
 				</form>
 			</div>		

@@ -1,4 +1,11 @@
+<?php
+session_start();
 
+if(isset($_GET['logout'])){
+  session_destroy();
+  unset($_SESSION['email_id']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,6 +50,9 @@
     >
       <div class="container">
         <a class="navbar-brand" href="index.html">Global Talents</a>
+        <?php if(isset($_SESSION['email_id'])): ?>
+        <h1 class="navbar-brand">Welcome,<?php echo $_SESSION['email_id']; ?></h1>
+        <?php endif; ?>
         <button
           class="navbar-toggler"
           type="button"
@@ -67,7 +77,14 @@
             <li class="nav-item">
               <a href="blog.html" class="nav-link">Pricing</a>
             </li>
-
+            
+            <?php if(isset($_SESSION['email_id'])): ?>
+            <li class="nav-item">
+              <a href="index.php?logout=1" class="nav-link">Logout</a>
+            </li>
+            <?php endif; ?>
+            
+            <?php if(!isset($_SESSION['email_id'])): ?>
             <li class="nav-item">
               <a href="login.php" class="nav-link">Log In</a>
             </li>
@@ -76,6 +93,7 @@
             <li class="nav-item cta mr-md-2" style="float: right;">
               <a href="signup/registration.php" class="nav-link">Sign up</a>
             </li>
+            <?php endif; ?>
             <li class="nav-item cta cta-colored">
               <a href="job-post.html" class="nav-link">Post a Job</a>
             </li>
