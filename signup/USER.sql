@@ -36,7 +36,15 @@ CREATE TABLE IF NOT EXISTS Category(
         ON UPDATE CASCADE
 ); 
 
-
+/*For password Reset*/
+CREATE TABLE pwdReset 
+(
+pwdResetId INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+pwdResetEmail TEXT NOT NULL,
+pwdResetSelector TEXT NOT NULL,
+pwdResetToken LONGTEXT NOT NULL,
+pwdResetExpires TEXT NOT NULL
+);
 /*
 CREATE TABLE IF NOT EXISTS Employee(
     username VARCHAR(30) PRIMARY KEY,

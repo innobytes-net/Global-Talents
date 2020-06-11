@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 session_start();
 $server='162.215.253.205';
 $user='innoszdh_global';
@@ -83,8 +83,8 @@ if(isset($_POST['signin-btn'])){
 	
 
 }
-?>
-
+?> -->
+ 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -92,81 +92,47 @@ if(isset($_POST['signin-btn'])){
 	<meta charset="utf-8">
 	<!--BOOTSTRAP-->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	<title>Login</title>
+	<title>Reset Password</title>
 	<link rel="stylesheet" type="text/css" href="/signup/css/register.css">
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 offset-md-4 form-div">
-			<?php if(isset($_SESSION['message'])): ?>
-			<div class="alert <?php echo $_SESSION['alert-class']; ?>">
-				<?php 
-				echo $_SESSION['message'];
-				unset($_SESSION['message']);
-				unset($_SESSION['alert-class']);
-				?>
-			</div>
-			<?php endif; ?>
-		
-				<form action="login.php" method="post">
+			
+				<form action="includes/reset-request.inc.php" method="post">
                     <img src="/images/talent.png" class="logo-img">
-					<h3 class="text-center">LOGIN</h3>
-
-                    <?php if(count($errors)>0): ?>
-			        <div class="alert alert-danger">
-                        <?php foreach($errors as $error): ?>
-                        <li><?php echo $error; ?></li>
-                        <?php endforeach; ?>
-					</div>   
-                    <?php endif; ?>
-
+					<h3 class="text-center">Reset Your Password!</h3>
+                        <p>Clink on the link sent to your email to reset your Password.</p>
+                  
 				
 
 
 					<div class="form-group">
 						<label for="email">Email:</label>
-						<input type="email" name="email"  value="<?php echo $email; ?>" class="form-control form-control-lg">
+						<input type="email" name="email" placeholder="Your email address"  class="form-control form-control-lg">
 					</div>
 
 
-					<div class="form-group">
-						<label for="password">Password:</label>
-						<input type="password" name="password" class="form-control form-control-lg">
-						<?php
-						if (isset($_GET['newpwd'])) 
-						{
-							if ($_GET['newpwd'] == "passwordupdated") 
-							{
-								echo "<p>Your password is reset</p>";
-							}
-						}
-						?>
-						<a href="reset-password.php" class=" " style="text-decoration: none;">
-    		            Forgot?
-        		      </a>
-					</div>
-
+	
 					<!--This is for button-->
 
 					<div class="form-group">
-						<button type="submit" name="signin-btn" class="btn btn-primary btn-block btn-lg">Sign In</button>
+						<button type="submit" name="reset-request-submit" class="btn btn-primary btn-block btn-lg">Send E-mail</button>
 					</div>
-					<?php
-						if (isset($_GET['email'])) 
-						{
-							if ($_GET['email'] == "absent") 
-							{
-					?>
-								<p style="color:Tomato;">There is no user registered with this mail-id</p>
-								<p style="color:Tomato;">Sign-up to log in.</p>
-					<?php		
-							}
-						}
-						?>
+
 					<p class="text-center">Not a member?<a href="/signup/registration.php"><br>Sign up</a></p>
 
-				</form>
+                </form>
+                <?php
+                    if (isset($_GET['reset'])) {
+                        if ($_GET['reset'] == "success") {
+                        
+                            echo "<p>Check your email for the link</p>";
+                        }
+                    }
+ 
+                ?>
 			</div>		
 		</div>
 	</div>
