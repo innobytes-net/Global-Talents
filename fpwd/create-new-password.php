@@ -88,7 +88,7 @@ else if (password == '' || confirmPassword == '')
 						<button disabled="true" id="submit" name="reset-password-submit" type="submit" class="btn btn-primary btn-block btn-lg">Reset Password</button>
 					</div>
 
-					<p class="text-center">Not a member?<a href="/signup/registration.php"><br>Sign up</a></p>
+					<p class="text-center">Not a member?<a href="../signup/registration.php"><br>Sign up</a></p>
 
                 </form>
            </div>		

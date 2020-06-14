@@ -142,7 +142,7 @@ if(isset($_POST['signin-btn'])){
 							}
 						}
 						?>
-						<a href="reset-password.php" class=" " style="text-decoration: none;">
+						<a href="fpwd/reset-password.php" class=" " style="text-decoration: none;">
     		            Forgot?
         		      </a>
 					</div>

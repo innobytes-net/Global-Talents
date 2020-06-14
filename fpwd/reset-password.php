@@ -47,7 +47,7 @@ if(isset($_POST['signin-btn'])){
 			$_SESSION['message'] = "You are now logged in";
 			$_SESSION['alert-class'] = "alert-success";
 			$_SESSION['email_id'] = $email;
-			header('location: index.php');
+			header('location: ../index.php');
 			exit();
 			
 
@@ -121,7 +121,7 @@ if(isset($_POST['signin-btn'])){
 						<button type="submit" name="reset-request-submit" class="btn btn-primary btn-block btn-lg">Send E-mail</button>
 					</div>
 
-					<p class="text-center">Not a member?<a href="/signup/registration.php"><br>Sign up</a></p>
+					<p class="text-center">Not a member?<a href="../signup/registration.php"><br>Sign up</a></p>
 
                 </form>
                 <?php

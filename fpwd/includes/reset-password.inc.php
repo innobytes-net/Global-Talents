@@ -10,7 +10,7 @@ if (isset($_POST['reset-password-submit']))
         if (empty($password) || empty($passwordRepeat)) 
             {
       
-                    header("Location: ../login.php?newpd=empty");
+                    header("Location: ../../login.php?newpd=empty");
                     exit();
             }
         else if ($password!=$passwordRepeat)
@@ -24,20 +24,21 @@ if (isset($_POST['reset-password-submit']))
 
             //Connecting to database
 
-    // $server='localhost';
-    // $user='root';
-    // $pass='';
-    // $db='user';
-    // $port = '3306';
-    $server='162.215.253.205';
-     $user='innoszdh_global';
-     $pass='kuber123';
-     $db='USERS';
-     $port = '3306';
-     $connection= mysqli_connect($server,$user,$pass,$db);
-     if(!$connection){
-         die("Database Error:". $connection->connect_error);
-     }
+    //  $server='localhost';
+    //  $user='root';
+    //  $pass='';
+    //  $db='user';
+    //  $port = '3306';
+
+     $server='162.215.253.205';
+      $user='innoszdh_global';
+      $pass='kuber123';
+      $db='USERS';
+      $port = '3306';
+      $connection= mysqli_connect($server,$user,$pass,$db);
+      if(!$connection){
+          die("Database Error:". $connection->connect_error);
+      }
 
     $connection= mysqli_connect($server,$user,$pass,$db,$port);
     if(!$connection)
@@ -123,7 +124,7 @@ if (isset($_POST['reset-password-submit']))
                             {
                                 mysqli_stmt_bind_param($stmt, "s",$tokenEmail);
                                 mysqli_stmt_execute($stmt);
-                                header("Location: ../login.php?newpwd=passwordupdated");
+                                header("Location: ../../login.php?newpwd=passwordupdated");
                             }
      
                     }   
@@ -136,6 +137,6 @@ if (isset($_POST['reset-password-submit']))
 }
 else
 {
-        header("Location: ../index.php");
+        header("Location: ../../index.php");
 }                
 ?>

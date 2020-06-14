@@ -8,19 +8,19 @@
      $port = '3306';
      $connection= mysqli_connect($server,$user,$pass,$db);
      if(!$connection){
-         die("Database Error:". $connection->connect_error);
+       die("Database Error:". $connection->connect_error);
      }
     
     
-    // $server='localhost';
-    // $user='root';
-    // $pass='';
-    // $db='user';
-    // $port = '3306';
-    // $connection= mysqli_connect($server,$user,$pass,$db,$port);
+    //  $server='localhost';
+    //  $user='root';
+    //  $pass='';
+    //  $db='user';
+    //  $port = '3306';
+    //  $connection= mysqli_connect($server,$user,$pass,$db,$port);
     // if(!$connection){
-    //     die("Database Error:". $connection->connect_error);
-    // }
+    //      die("Database Error:". $connection->connect_error);
+    //  }
     
 $errors = array();
 $userEmail = "";
@@ -45,11 +45,11 @@ if(isset($_POST['reset-request-submit']))
     $token = random_bytes(32);	
     
     //Uncomment this url for server
-    $url = "https://globaltalents.co/create-new-password.php?selector=". $selector . "&validator=" . bin2hex($token);
+    $url = "https://globaltalents.co/fpwd/create-new-password.php?selector=". $selector . "&validator=" . bin2hex($token);
     
 
     //Uncomment this url for Localhost 
-   // $url = "http://localhost/Global-Talents/create-new-password.php?selector=". $selector . "&validator=" . bin2hex($token);
+   // $url = "http://localhost/Global-Talents/fpwd/create-new-password.php?selector=". $selector . "&validator=" . bin2hex($token);
     
 
     $expires = date("U") + 1800;
@@ -117,12 +117,12 @@ header("Location: ../reset-password.php?reset=success");
 }
     else
     {
-		header("Location: ../login.php?email=absent");
+		header("Location: ../../login.php?email=absent");
 	}
 
 }
 else 
 {
-    header("Location: ../index.php");
+    header("Location: ../../index.php");
 }
 ?>
