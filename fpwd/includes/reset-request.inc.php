@@ -4,11 +4,11 @@
      $server='162.215.253.205';
      $user='innoszdh_global';
      $pass='kuber123';
-     $db='USERS';
+     $db='innoszdh_globaltalents';
      $port = '3306';
-     $connection= mysqli_connect($server,$user,$pass,$db);
+     $connection= mysqli_connect($server,$user,$pass,$db,$port);
      if(!$connection){
-       die("Database Error:". $connection->connect_error);
+       die("Database Error: Can't connect". $connection->connect_error);
      }
     
     

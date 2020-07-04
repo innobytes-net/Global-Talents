@@ -33,9 +33,9 @@ if (isset($_POST['reset-password-submit']))
      $server='162.215.253.205';
       $user='innoszdh_global';
       $pass='kuber123';
-      $db='USERS';
+      $db='innoszdh_globaltalents';
       $port = '3306';
-      $connection= mysqli_connect($server,$user,$pass,$db);
+      $connection= mysqli_connect($server,$user,$pass,$db,$port);
       if(!$connection){
           die("Database Error:". $connection->connect_error);
       }
@@ -50,7 +50,7 @@ if (isset($_POST['reset-password-submit']))
     $stmt = mysqli_stmt_init($connection);
     if (!mysqli_stmt_prepare($stmt,$sql)) 
     {
-        echo "There was an error!";
+        echo "There was an error in execution!";
         exit();
     }
     else 
@@ -84,7 +84,7 @@ if (isset($_POST['reset-password-submit']))
                 $stmt = mysqli_stmt_init($connection);
                  if (!mysqli_stmt_prepare($stmt,$sql)) 
                 {
-                    echo "There was an error!";
+                    echo "There was an error in finding user!";
                     exit();
                 }
                 else 
@@ -99,17 +99,17 @@ if (isset($_POST['reset-password-submit']))
                     echo "You need to re-submit reset request";
                     exit();
                     }
-                    $newpwdHash = password_hash($password, PASSWORD_DEFAULT);
-                    $sql = "UPDATE users SET password=? where email_id=? ;";
+                   
+                    $sql = "UPDATE USERS SET password=? where email_id=? ;";
                     $stmt = mysqli_stmt_init($connection);
                     if (!mysqli_stmt_prepare($stmt,$sql)) 
                    {
-                       echo "There was an error!";
+                       echo "There was an error in updating table!";
                        exit();
                    }
                    else 
                    {
-                    mysqli_stmt_bind_param($stmt, "ss",$newpwdHash, $tokenEmail);
+                    mysqli_stmt_bind_param($stmt, "ss", $password, $tokenEmail);
                     mysqli_stmt_execute($stmt);
     
                     //Deleting token from pwdReset table
@@ -117,7 +117,7 @@ if (isset($_POST['reset-password-submit']))
                             $stmt = mysqli_stmt_init($connection);
                             if (!mysqli_stmt_prepare($stmt,$sql)) 
                             {
-                                echo "There was an error!";
+                                echo "There was an error in deletion!";
                                 exit();
                             }
                             else 
