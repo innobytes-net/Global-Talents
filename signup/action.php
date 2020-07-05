@@ -63,7 +63,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     //inserting profile pic in Profile-directory
     //$extension = end(explode(".", $newfilename));
 
-        if ($_FILES["profilepic"]["size"] < 200000) {
+        if ($_FILES["profilepic"]["size"] < 2097152) {
             if ($_FILES["profilepic"]["error"] > 0)
             {
                 echo "Return Code: " . $_FILES["profilepic"]["error"] . "<br />";
@@ -212,7 +212,7 @@ else {
 $temp = explode(".", $_FILES["cv"]["name"]);
 $newfilename = "{$userid}{$firstname}{$lastname}";
 $newfilename.= '.' . end($temp);
-        if ($_FILES["cv"]["size"] < 200000) {
+        if ($_FILES["cv"]["size"] < 2097152) {
             if ($_FILES["cv"]["error"] > 0)
             {
                 echo "Return Code: " . $_FILES["cv"]["error"] . "<br />";
