@@ -1,10 +1,17 @@
 <?php
 session_start();
-$server='162.215.253.205';
- $user='innoszdh_global';
- $pass='kuber123';
- $db='innoszdh_globaltalents';
- $port = '3306';
+// $server='162.215.253.205';
+//  $user='innoszdh_global';
+//  $pass='kuber123';
+//  $db='innoszdh_globaltalents';
+//  $port = '3306';
+
+$server='localhost';
+$user='root';
+$pass='';
+$db='user';
+$port = '3306';
+
 $connection= new mysqli($server,$user,$pass,$db,$port);
 if($connection->connect_error){
     die("Database Error:". $connection->connect_error);
@@ -68,12 +75,13 @@ if(isset($_POST['signup-btn'])){
         $user_id = $connection->insert_id;
         $_SESSION['userid'] = $user_id;
         $_SESSION['first_name'] = $firstname;
+        $_SESSION['last_name'] = $lastname;
         $_SESSION['email_id'] = $email;
 
         //set flash message
         $_SESSION['message'] = "Registration done successfully";
         $_SESSION['alert-class'] = "alert-success";
-        header('location: ../login.php');
+        header('location: employee.php');
         exit();
 
         }else{
