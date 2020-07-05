@@ -70,7 +70,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             }
             else
             {
-                echo "Upload: " . $newfilename . "<br />";
+              //  echo "Upload: " . $newfilename . "<br />";
             // echo "Temp file: " . $_FILES["profilepic"]["tmp_name"] . "<br />";
 
             if(!is_dir("Profile/")) 
@@ -80,7 +80,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             //moving uploaded file
             move_uploaded_file($_FILES["profilepic"]["tmp_name"],"Profile/". $newfilename);
                     
-            echo "Stored in: " . "Profile/". $newfilename;
+          //  echo "Stored in: " . "Profile/". $newfilename;
                 
             }
         } else 
@@ -219,7 +219,7 @@ $newfilename.= '.' . end($temp);
             }
             else
             {
-                echo "Upload: " . $newfilename . "<br />";
+            //    echo "Upload: " . $newfilename . "<br />";
             // echo "Temp file: " . $_FILES["profilepic"]["tmp_name"] . "<br />";
 
             if(!is_dir("CV/")) 
@@ -229,7 +229,7 @@ $newfilename.= '.' . end($temp);
                 //moving uploaded file
                     move_uploaded_file($_FILES["cv"]["tmp_name"],"CV/". $newfilename);
                     
-                    echo "Stored in: " . "CV/". $newfilename;
+              //      echo "Stored in: " . "CV/". $newfilename;
                 
             }
         } else 
@@ -255,7 +255,7 @@ $newfilename.= '.' . end($temp);
             
             }
         if (mysqli_stmt_execute($stmt)) {
-            echo "worked";
+          //  echo "worked";
         }    
         else {
             echo "Insertion of CV didn't work";
