@@ -52,6 +52,7 @@ Admin access to the user profile and job updates.
 ### •	Krushna Raut
 ### •	Kaustubh Baghul
 ### •	Rakesh Amrutkar
+### •	Manish Bhilare
 # License
 ### This project is licensed under the MIT License - see the LICENSE.md file for details
 # Refrences
