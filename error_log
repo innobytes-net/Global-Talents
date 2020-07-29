@@ -1,0 +1,4 @@
+[15-Jun-2020 07:33:38 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/innoszdh/public_html/globaltalents.co/fpwd/reset-password.php on line 2
+[15-Jun-2020 07:35:41 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/innoszdh/public_html/globaltalents.co/fpwd/reset-password.php on line 2
+[15-Jun-2020 07:36:02 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/innoszdh/public_html/globaltalents.co/fpwd/reset-password.php on line 2
+[15-Jun-2020 07:44:16 UTC] PHP Warning:  session_start(): Cannot start session when headers already sent in /home/innoszdh/public_html/globaltalents.co/fpwd/reset-password.php on line 2
